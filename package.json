@@ -7,7 +7,7 @@
     "lastmod": "./cli.js"
   },
   "scripts": {
-    "test": "cd test && bash test.sh",
+    "test": "cd test && sh test.sh",
     "build": "bash build.sh",
     "test:build": "npm run build && cp -r test build/ && cd build && npm test && rm -rf test"
   },

@@ -24,7 +24,7 @@ if(file == '') {
 const lastModifiedTimeStr = args.has('--time') ? args.get('--time') : args.has('-t') ? args.get('-t') : null;
 if(lastModifiedTimeStr == null) {
     console.error('--time argument required. Use -h for options.');
-    process.exit(0);
+    process.exit(1);
 }
 
 console.log(`Changing last modified time for ${file} to ${lastModifiedTimeStr}`);

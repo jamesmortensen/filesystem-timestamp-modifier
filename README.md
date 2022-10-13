@@ -10,18 +10,6 @@ Install from the NPM registry as a global CLI tool:
 $ npm i filesystem-timestamp-modifier -g
 ```
 
-
-## Contributing
-
-Clone the project and install dependencies:
-
-```
-$ npm i
-```
-
-NOTE: If running from the source, replace "lastmod" with "node cli.js" in the examples below.
-
-
 ## Examples
 
 Create a sample file called "testfile":
@@ -64,6 +52,44 @@ This results in:
 $ ls -lT ./timestamp
 -rw-r--r--  1 james  staff  0 Sep  6 20:01:00 2021 ./testfile
 ```
+
+## Contributing
+
+### Cloning and setup
+
+Clone the project and install dependencies:
+
+```
+$ npm i
+```
+
+Run the tests:
+
+```
+$ npm test
+```
+
+NOTE: If running from the source, replace "lastmod" with "node cli.js" in the examples section above.
+
+
+### Run tests within Docker/Podman
+
+`npm test` runs tests in the development OS, whatever OS you're running on. If making changes to the tests, it's helpful to verify they work in various shell environments. One way to quickly validate this is via container images.
+
+To test on a specific Linux platform, substitute the container image tag with the IMAGE_TAG build-arg. For example, the two entries below show how to run the test on Alpine and Debian after first building test images:
+
+Alpine Linux:
+```
+$ docker build --build-arg IMAGE_TAG=16.17.1-alpine3.15 -f Dockerfile -t alpine/lastmod .
+$ docker run --rm -it alpine/lastmod
+```
+
+Debian:
+```
+$ docker build --build-arg IMAGE_TAG=lts-buster-slim -f Dockerfile -t debian/lastmod .
+$ docker run --rm -it debian/lastmod
+```
+
 
 ## License
 
