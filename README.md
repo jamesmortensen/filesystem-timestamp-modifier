@@ -53,6 +53,22 @@ $ ls -lT ./timestamp
 -rw-r--r--  1 james  staff  0 Sep  6 20:01:00 2021 ./testfile
 ```
 
+## Use as a function in a Node.js codebase
+
+This module can also be used locally inside a codebase. 
+
+```
+$ npm i filesystem-timestamp-modifier
+```
+
+Then use it like this:
+
+```javascript
+const updateFileTimestamps = require('filesystem-timestamp-modifier');
+updateFileTimestamps('./testfile', new Date('September 5, 2021 8:01 PM').getTime());
+```
+
+
 ## Contributing
 
 ### Cloning and setup

@@ -1,13 +1,15 @@
 {
   "name": "filesystem-timestamp-modifier",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
-  "main": "cli.js",
+  "main": "index.js",
   "bin": {
     "lastmod": "./cli.js"
   },
   "scripts": {
-    "test": "cd test && sh test.sh",
+    "test:cli": "cd test && sh test-cli.sh",
+    "test:lib": "npx mocha test/filesystem-timestamp-modifier.spec.js",
+    "test": "npm run test:lib && npm run test:cli",
     "build": "bash build.sh",
     "test:build": "npm run build && cp -r test build/ && cd build && npm test && rm -rf test"
   },
@@ -31,6 +33,8 @@
     "argumently": "^0.0.2"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.1.0",
     "uglify-js": "^3.17.3"
   }
 }
